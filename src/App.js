@@ -9,13 +9,20 @@ import axios from "axios";
 
 function App() {
   const classifyItem = async ({ text }) => {
-    const prompt = `Get the item of the last query using the below examples. Return null and only null if the question is incomplete.
+    const prompt = 
+    `Get the item of the last query using the below examples. Return null and only null if the question is incomplete and don't return anything else. Remove common words and return the uncommon words. Uncommon words are food items in this case
 
     Query: Search for Shahi Paneer
     Shahi Paneer
     
+    Query: Search for ras malai
+    Ras malai
+    
     Query: Order Aloo ki sabzi 
     Aloo ki sabzi
+    
+    Query: Order for me kabab paratha
+    Kabab paratha
     
     Query: I want to eat baingan ka bharta
     Baingan ka bharta
@@ -42,6 +49,40 @@ function App() {
     Ice cream
     
     Query: Best samosa places in Bangalore
+    Samosa
+    
+    Query: Tea
+    Tea
+    
+    Query: Chaat
+    Chaat
+    
+    Query: Burger please
+    Burger
+    
+    Query: Hello
+    null
+    
+    Query: Hello can you hear me
+    null
+    
+    Query: I want to order
+    null
+    
+    Query: I want to eat 
+    null
+    
+    Query: I am craving for 
+    null
+    
+    Query: Let me have 
+    null
+    
+    Query: Recommend me places which serve good 
+    null
+    
+    Query: Good restaurants that serve 
+    null
     
     ${text}`;
 

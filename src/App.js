@@ -10,8 +10,7 @@ import Footer from "./Components/Footer";
 
 function App() {
   const classifyItem = async ({ text }) => {
-    const prompt = 
-    `Get the item of the last query using the below examples. Return null and only null if the question is incomplete and don't return anything else. Remove common words and return the uncommon words. Uncommon words are food items in this case
+    const prompt = `Get the item of the last query using the below examples. Return null and only null if the question is incomplete and don't return anything else. Remove common words and return the uncommon words. Uncommon words are food items in this case
 
     Query: Search for Shahi Paneer
     Shahi Paneer
@@ -121,43 +120,46 @@ function App() {
   return (
     <div className="App">
       <div className="flex justify-center items-center h-screen flex-col relative">
-      <div className="flex justify-center items-center"><div style={{height: "50px",width: "50px"}}> 
-      <img src = "icon.png" height= "100%" width
-      = "100%"></img>
-    </div> <p className="heading"> VOICEBOT </p></div>
-    <div className="tagline">Say it, get it. Effortless shopping</div>
+        <div className="flex justify-center items-center">
+          <div style={{ height: "50px", width: "50px" }}>
+            <img src="icon.svg" height="100%" width="100%"></img>
+          </div>{" "}
+          <p className="heading"> VOICEBOT </p>
+        </div>
+        <div className="tagline">Say it, get it. Effortless shopping</div>
         {mutation?.isLoading ? (
-          <span className="afterListeningText">
-          "Processing your request" </span>
+          <span className="afterListeningText">"Processing your request" </span>
         ) : mutation?.isError ? (
-        <>
-          <span className="afterListeningText">
-            Please retry &nbsp; </span>
+          <>
+            <span className="afterListeningText">Please retry &nbsp; </span>
             <KeyboardVoiceIcon
               fontSize="large"
               className="bg-black-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
               onClick={SpeechRecognition.startListening}
             />
-          </> )
-         : null }
-
-        {mutation?.isSuccess
-          ? <span className="afterListeningText"> We were able to recognize that you are trying to order <span className="mutation">{mutation?.data}</span> </span>
-          : null}
-        {listening ? (
-          <span className="afterListeningText">
-          "Listening..." </span>
-        ) : mutation?.status === "idle" ? (
-          <> 
-          <div className="label"> Click on the Mic to Request </div>
-          <KeyboardVoiceIcon
-            fontSize="large"
-            className="bg-black-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
-            onClick={SpeechRecognition.startListening}
-          />
           </>
         ) : null}
-      <Footer/>
+
+        {mutation?.isSuccess ? (
+          <span className="afterListeningText">
+            {" "}
+            We were able to recognize that you are trying to order{" "}
+            <span className="mutation">{mutation?.data}</span>{" "}
+          </span>
+        ) : null}
+        {listening ? (
+          <span className="afterListeningText">"Listening..." </span>
+        ) : mutation?.status === "idle" ? (
+          <>
+            <div className="label"> Click on the Mic to Request </div>
+            <KeyboardVoiceIcon
+              fontSize="large"
+              className="bg-black-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
+              onClick={SpeechRecognition.startListening}
+            />
+          </>
+        ) : null}
+        <Footer />
       </div>
     </div>
   );

@@ -120,12 +120,12 @@ function App() {
 
   return (
     <div className="App">
-      <Footer/>
-      <div className="flex justify-center items-center h-screen flex-col">
-      <div className="flex justify-center items-center"><div style={{height: "50px",width: "50px"}}> 
+      <div className="flex justify-center items-center h-screen flex-col relative">
+      <div className="flex justify-center items-center"><div style={{height: "70px",width: "100px"}}> 
       <img src = "icon.png" height= "100%" width
       = "100%"></img>
     </div> <p className="heading"> VOICEBOT </p></div>
+    <div className="tagline">Say it, get it. Effortless shopping</div>
         {mutation?.isLoading ? (
           <span className="afterListeningText">
           "Processing your request" </span>
@@ -142,7 +142,7 @@ function App() {
          : null }
 
         {mutation?.isSuccess
-          ? <span className="afterListeningText"> We were able to recognize that you are trying to order {mutation?.data} </span>
+          ? <span className="afterListeningText"> We were able to recognize that you are trying to order <span className="mutation">{mutation?.data}</span> </span>
           : null}
         {listening ? (
           <span className="afterListeningText">
@@ -157,6 +157,7 @@ function App() {
           />
           </>
         ) : null}
+      <Footer/>
       </div>
     </div>
   );

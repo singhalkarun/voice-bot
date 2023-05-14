@@ -1,4 +1,5 @@
 # Voice Bot
+Globally, at least 220 Crore people have a near or distance vision impairment. According to US Department of e-commerce 2/3 of ecommerce transactions are abandoned by visually impaired people because of lack of accessibility. This project plans to use Generative AI to build a solution and reduce the loss.
 
 ## Problem Statement
 Make journey of discovering and ordering a product even more accessible through voice based interaction.

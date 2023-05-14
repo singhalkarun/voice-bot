@@ -121,7 +121,7 @@ function App() {
   return (
     <div className="App">
       <div className="flex justify-center items-center h-screen flex-col relative">
-      <div className="flex justify-center items-center"><div style={{height: "70px",width: "100px"}}> 
+      <div className="flex justify-center items-center"><div style={{height: "50px",width: "50px"}}> 
       <img src = "icon.png" height= "100%" width
       = "100%"></img>
     </div> <p className="heading"> VOICEBOT </p></div>

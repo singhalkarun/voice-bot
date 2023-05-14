@@ -10,3 +10,6 @@ Build an extension for shopify sellers that allows them to enable completely voi
 
 ## Long Term Goal
 Build an SDK that can be integrated with any ecommerce for enabling completely voice based interaction
+
+## Technical Flow
+User Input -> Voice to Text (Browser Speech APIs) -> Intent Classification (ChatGPT 3.5) -> Interact with Shopify's API and get data -> Text to Voice (Browser Speech APIs)

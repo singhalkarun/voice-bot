@@ -8,6 +8,8 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import Footer from "./Components/Footer";
 
+const synth = window.speechSynthesis;
+
 function App() {
   const classifyItem = async ({ text }) => {
     const prompt = `Get the item of the last query using the below examples. Return null and only null if the question is incomplete and don't return anything else. Remove common words and return the uncommon words. Uncommon words are food items in this case
@@ -93,9 +95,22 @@ function App() {
       }
     );
 
+    const utterThis = new SpeechSynthesisUtterance();
+
     if (res?.data?.answer === "null") {
+      utterThis.text = `Please retry`;
+      utterThis.rate = 0.75;
+
+      synth.speak(utterThis);
+
       throw new Error();
+    } else {
+      utterThis.text = ` We were able to recognize that you are trying to order ${res?.data?.answer}`;
     }
+
+    utterThis.rate = 0.75;
+
+    synth.speak(utterThis);
 
     return res?.data?.answer;
   };

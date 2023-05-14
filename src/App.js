@@ -6,6 +6,7 @@ import SpeechRecognition, {
 import { useEffect } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import Footer from "./Components/Footer";
 
 function App() {
   const classifyItem = async ({ text }) => {
@@ -119,31 +120,42 @@ function App() {
 
   return (
     <div className="App">
-      <div className="flex justify-center items-center h-screen">
+      <Footer/>
+      <div className="flex justify-center items-center h-screen flex-col">
+      <div className="flex justify-center items-center"><div style={{height: "50px",width: "50px"}}> 
+      <img src = "icon.png" height= "100%" width
+      = "100%"></img>
+    </div> <p className="heading"> VOICEBOT </p></div>
         {mutation?.isLoading ? (
-          "Processing your request"
+          <span className="afterListeningText">
+          "Processing your request" </span>
         ) : mutation?.isError ? (
-          <div>
-            Please retry &nbsp;
+        <>
+          <span className="afterListeningText">
+            Please retry &nbsp; </span>
             <KeyboardVoiceIcon
               fontSize="large"
-              className="bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
+              className="bg-black-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
               onClick={SpeechRecognition.startListening}
             />
-          </div>
-        ) : null}
+          </> )
+         : null }
 
         {mutation?.isSuccess
-          ? `We were able to recognize that you are trying to order ${mutation?.data}`
+          ? <span className="afterListeningText"> We were able to recognize that you are trying to order {mutation?.data} </span>
           : null}
         {listening ? (
-          "Listening..."
+          <span className="afterListeningText">
+          "Listening..." </span>
         ) : mutation?.status === "idle" ? (
+          <> 
+          <div className="label"> Click on the Mic to Request </div>
           <KeyboardVoiceIcon
             fontSize="large"
-            className="bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
+            className="bg-black-500 text-white rounded-full shadow-lg hover:bg-blue-600 cursor-pointer"
             onClick={SpeechRecognition.startListening}
           />
+          </>
         ) : null}
       </div>
     </div>

@@ -1,38 +1,39 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  background-color: black; /* adds a light gray background color to the entire app */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 2px solid #0a1214; /* adds a black border around the header */
+  padding: 20px; /* adds 20px of padding to the header */
+}
+
+.App-logo {
+  margin-top: 20px; /* adds some space above the logo */
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5)); /* adds a drop shadow to the logo */
+}
+
+.App-link:hover {
+  text-decoration: underline; /* underlines links when hovered over */
+}
+ .afterListeningText {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+  color: violet;
+ }
+ .heading {
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
   color: white;
-}
+  margin-left: 10px;
+ }
+ .label {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+ }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
